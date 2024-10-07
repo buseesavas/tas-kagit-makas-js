@@ -1,7 +1,7 @@
 let bilgisayarHamlesi = ["taş", "kağıt", "makas"].at(
   Math.floor(Math.random() * 3)
 );
-let oyuncuHamlesi = prompt("taş mı? kağıt mı? makas mı?");
+let oyuncuHamlesi = prompt("taş mı? kağıt mı? makas mı?").toLowerCase();
 if (
   (bilgisayarHamlesi == "taş" && oyuncuHamlesi == "kağıt") ||
   (bilgisayarHamlesi == "kağıt" && oyuncuHamlesi == "makas") ||
@@ -30,4 +30,6 @@ if (
   (bilgisayarHamlesi == "makas" && oyuncuHamlesi == "makas")
 ) {
   alert("Bilgisayar seçimi: taş. Berabere. Tekrar dene..");
+} else {
+  alert("Geçersiz kelime!");
 }

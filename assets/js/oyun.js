@@ -1,35 +1,56 @@
-let bilgisayarHamlesi = ["taş", "kağıt", "makas"].at(
-  Math.floor(Math.random() * 3)
-);
-let oyuncuHamlesi = prompt("taş mı? kağıt mı? makas mı?").toLowerCase();
+sifirlaBtn.addEventListener("click", skorSifirla);
+tasBtn.addEventListener("click", () => hamleSec("taş"));
+kagitBtn.addEventListener("click", () => hamleSec("kağıt"));
+makasBtn.addEventListener("click", () => hamleSec("makas"))
+
+const bilgisayarHamleSecenekleri = ["taş", "kağıt", "makas"];
+
+function bilgisayarHamlesi() {
+  return bilgisayarHamleSecenekleri.at(Math.floor(Math.random() * 3));
+}
+
+function hamleSec(oyuncuHamlesi) {
+  const bilgisayarSecimi = bilgisayarHamlesi();
+  bilgisayarSecimiTxt.innerText = bilgisayarSecimi;
+
 if (
-  (bilgisayarHamlesi == "taş" && oyuncuHamlesi == "kağıt") ||
-  (bilgisayarHamlesi == "kağıt" && oyuncuHamlesi == "makas") ||
-  (bilgisayarHamlesi == "makas" && oyuncuHamlesi == "taş")
+  (bilgisayarSecimi == "taş" && oyuncuHamlesi == "kağıt") ||
+  (bilgisayarSecimi == "kağıt" && oyuncuHamlesi == "makas") ||
+  (bilgisayarSecimi == "makas" && oyuncuHamlesi == "taş")
 ) {
-  alert(
-    "Bilgisayar seçimi: " +
-      bilgisayarHamlesi +
-      ". " +
-      "Sen kazandın. Tebrikler :)"
-  );
+  oyuncuSayac();
 } else if (
-  (bilgisayarHamlesi == "taş" && oyuncuHamlesi == "makas") ||
-  (bilgisayarHamlesi == "kağıt" && oyuncuHamlesi == "taş") ||
-  (bilgisayarHamlesi == "makas" && oyuncuHamlesi == "kağıt")
+  (bilgisayarSecimi == "taş" && oyuncuHamlesi == "makas") ||
+  (bilgisayarSecimi == "kağıt" && oyuncuHamlesi == "taş") ||
+  (bilgisayarSecimi == "makas" && oyuncuHamlesi == "kağıt")
 ) {
-  alert(
-    "Bilgisayar seçimi: " +
-      bilgisayarHamlesi +
-      ". " +
-      "Bilgisayar kazandı. Tekrar dene :("
-  );
-} else if (
-  (bilgisayarHamlesi == "taş" && oyuncuHamlesi == "taş") ||
-  (bilgisayarHamlesi == "kağıt" && oyuncuHamlesi == "kağıt") ||
-  (bilgisayarHamlesi == "makas" && oyuncuHamlesi == "makas")
-) {
-  alert("Bilgisayar seçimi: taş. Berabere. Tekrar dene..");
+  bilgisayarSayac();
 } else {
-  alert("Geçersiz kelime!");
+  kazanan.innerText = 'Berabere'
+} 
+}
+
+let oyuncuSkorSayac = 0;
+function oyuncuSayac() {
+  oyuncuSkorSayac++;
+  oyuncuSkor.innerText = oyuncuSkorSayac;
+  kazanan.innerText = "Oyuncu";
+}
+
+let bilgisayarSkorSayac = 0;
+function bilgisayarSayac() {
+  bilgisayarSkorSayac++;
+  bilgisayarSkor.innerText = bilgisayarSkorSayac;
+  kazanan.innerText = "Bilgisayar";
+}
+
+
+
+function skorSifirla() {
+  oyuncuSkor.innerText = 0;
+  bilgisayarSkor.innerText = 0;
+  kazanan.innerText = ' ';
+  bilgisayarSecimiTxt.innerText = ' '
+  bilgisayarSkorSayac = 0;
+  oyuncuSkorSayac = 0;
 }

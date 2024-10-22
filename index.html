@@ -4,8 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taş Kağıt Makas</title>
-  <script src="assets/js/oyun.js"></script>
+  <link rel="stylesheet" href="assets/css/oyun.css">
+  <script src="assets/js/oyun.js" defer></script>
 </head>
 <body>
+  <div class="container">
+    <h1>Taş Kağıt Makas</h1>
+    <div class="secimler">
+      <div class="oyuncuHamlesi">
+        <h3>Oyuncu</h3>
+        <button id="tasBtn">Taş</button>
+        <button id="kagitBtn">Kağıt</button>
+        <button id="makasBtn">Makas</button>
+      </div>
+      <div class="bilgisayar">
+        <h3>Bilgisayar</h3>
+        <p><span id="bilgisayarSecimiTxt"></span></p>
+      </div>
+    </div>
+  <div class="skor">
+    <p>Oyuncu: <span id="oyuncuSkor">0</span></p>
+    <p>Bilgisayar: <span id="bilgisayarSkor">0</span></p>
+  </div>
+  <div class="kazananSkorBoxes">
+    <div class="kazananKisiBox">
+      <p>Kazanan: <span id="kazanan"></span></p>
+    </div>
+    <div class="skorSifirla">
+      <button id="sifirlaBtn">Skorları Sıfırla</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
